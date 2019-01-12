@@ -1,0 +1,21 @@
+---
+
+- name: set hostname
+  template:
+    src: hostname.j2
+    dest: /etc/hostname
+    mode: 0644
+    owner: root
+    group: root
+  notify: reboot server
+
+- name: set hosts
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    mode: 0644
+    owner: root
+    group: root
+
+- name: apply new hostname if needed
+  meta: flush_handlers
