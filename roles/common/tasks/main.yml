@@ -1,0 +1,14 @@
+---
+
+- name: install packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - less
+    - mtr-tiny
+    - htop
+    - iftop
+    - ctop
+    - net-tools
+    - ethtool
