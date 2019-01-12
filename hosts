@@ -1,0 +1,12 @@
+[internal]
+pve01.internal.revs0.com ansible_host=10.3.2.1       vpn_host=10.0.2.1
+pve02.internal.revs0.com ansible_host=10.3.2.2       vpn_host=10.0.2.2
+pve03.internal.revs0.com ansible_host=10.3.2.3       vpn_host=10.0.2.3
+pve04.internal.revs0.com ansible_host=10.3.2.4       vpn_host=10.0.2.4
+pve05.internal.revs0.com ansible_host=10.3.2.5       vpn_host=10.0.2.5
+pve06.internal.revs0.com ansible_host=10.3.2.6       vpn_host=10.0.2.6
+
+[external]
+bush.revs0.com           ansible_host=195.154.83.2   vpn_host=10.0.1.15
+kwak.revs0.com           ansible_host=163.172.67.146 vpn_host=10.0.1.16
+punk-ipa.revs0.com       ansible_host=51.15.16.29    vpn_host=10.0.1.17
