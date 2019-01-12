@@ -6,3 +6,4 @@
     - common
     - hostname
     - motd
+    - geerlingguy.ntp
