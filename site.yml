@@ -1,0 +1,8 @@
+---
+
+- name: basic configuration
+  hosts: all
+  roles:
+    - common
+    - hostname
+    - motd
