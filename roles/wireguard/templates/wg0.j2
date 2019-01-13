@@ -1,0 +1,6 @@
+auto wg0
+iface wg0 inet static
+        address {{ vpn_host }}
+        netmask 255.254.0.0
+        pre-up wg-quick up $IFACE
+        post-down wg-quick down $IFACE

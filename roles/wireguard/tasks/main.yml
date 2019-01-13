@@ -1,0 +1,44 @@
+---
+
+- name: install linux linux-headers
+  action: shell apt install -y linux-headers-$(uname -r)
+
+- name: add wireguard repository (aka the debian unstable repo)
+  copy:
+    dest: /etc/apt/sources.list.d/unstable.list
+    mode: 0644
+    owner: root
+    group: root
+    content: 'deb http://deb.debian.org/debian/ unstable main'
+
+- name: limit unstable
+  copy:
+    dest: /etc/apt/preferences.d/limit-unstable
+    mode: 0644
+    owner: root
+    group: root
+    content: |
+      Package: *
+      Pin: release a=unstable
+      Pin-Priority: 90
+
+- name: install wireguard
+  apt:
+    name: wireguard
+    update_cache: yes
+
+- name: deploy wireguard configuration
+  template:
+    src: wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+    mode: 0400
+    owner: root
+    group: root
+
+- name: deploy interface configuration
+  template:
+    src: wg0.j2
+    dest: /etc/network/interfaces.d/wg0
+    mode: 0644
+    owner: root
+    group: root

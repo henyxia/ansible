@@ -1,0 +1,10 @@
+[Interface]
+ListenPort = 51820
+PrivateKey = {{ wireguard_keys[inventory_hostname_short]['private']}}
+
+# bx
+[Peer]
+Endpoint = 54.38.41.145:51820
+PublicKey = V9HY1v3oKSCXWz6enA5n/gAKaYhZycuIC/RxDAecy0o=
+AllowedIPs = 10.0.0.0/15
+PersistentKeepalive = 12

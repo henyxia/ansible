@@ -3,14 +3,24 @@
 - name: install python dependency
   gather_facts: no
   hosts: all
+  tags: common
   tasks:
     - name: install python2
       raw: apt install -y python
 
 - name: basic configuration
   hosts: all
+  tags: common
   roles:
     - common
     - hostname
     - motd
     - geerlingguy.ntp
+
+- name: wireguard install and configuration
+  hosts: all
+  tags: wireguard
+  vars_files:
+    - "vars/wireguard.yml"
+  roles:
+    - wireguard
